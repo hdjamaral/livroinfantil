@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Melhor Livro Infantil: Análise e Metodologia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Harmony -->
+    <!-- Application Structure Plan: SPA com duas 'páginas' (home e sources). -->
+    <!-- Visualization & Content Choices: Gráfico de Barras Horizontais (Chart.js), etc. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFAF0; 
+            color: #4A4A4A;
+            padding-top: 4.5rem; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* CSS de Animação e Curtir REMOVIDO */
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- SEU CÓDIGO ORIGINAL (Menu de Navegação) -->
+    <nav class="fixed top-0 left-0 right-0 bg-teal-50 shadow-md z-50 h-18">
+        <div class="container mx-auto px-4 h-full">
+            <div class="flex justify-between items-center h-full">
+                <span class="text-xl font-bold text-teal-700">Análise de Livros</span>
+                
+                <div class="hidden md:flex space-x-4">
+                    <a href="#" class="text-teal-700 hover:text-teal-900 font-bold" onclick="showPage('home-page', true)">Análise Principal</a>
+                    <a href="#" class="text-teal-700 hover:text-teal-900 font-bold" onclick="showPage('sources-page', true)">Fontes e Metodologia</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-stone-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="absolute top-18 left-0 w-full bg-teal-50 shadow-lg md:hidden transform -translate-x-full">
+            <a href="#" class="block py-3 px-4 text-teal-700 hover:bg-amber-50 font-bold" onclick="showPage('home-page', true)">Análise Principal</a>
+            <a href="#" class="block py-3 px-4 text-teal-700 hover:bg-amber-50 font-bold" onclick="showPage('sources-page', true)">Fontes e Metodologia</a>
+        </div>
+    </nav>
+
+    <!-- SEU CÓDIGO ORIGINAL (Conteúdo Principal) -->
+    <main class="container mx-auto px-4 py-8 md:py-16">
+
+        <div id="home-page">
+            <header class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold text-stone-800 leading-tight">O Melhor Livro do Mundo</h1>
+                <p class="text-lg md:text-2xl text-stone-600 mt-2">Para uma criança de 5 anos (e com apelo de 3 a 8 anos), uma obra se destaca.</p>
+            </header>
+
+            <section id="the-choice" class="mb-20">
+                <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
+                    <h2 class="text-2xl md:text-3xl font-bold text-teal-700 mb-4">Onde Vivem os Monstros</h2>
+                    <p class="text-lg text-stone-700 mb-2">de Maurice Sendak</p>
+                    <div class="text-5xl mb-6">👑</div>
+                    <p class="text-base md:text-lg text-stone-600 leading-relaxed">
+                        Publicado em 1963, este livro transcende culturas e gerações. Ele não apenas entretém, mas também valida os sentimentos complexos de uma criança. Através da jornada de Max, que navega sua raiva e frustração para encontrar conforto e controle, a obra oferece uma lição profunda sobre a inteligência emocional de uma forma que poucas conseguem. É uma obra-prima de narrativa, arte e psicologia infantil.
+                    </p>
+                </div>
+            </section>
+
+            <section id="why" class="mb-20">
+                <h3 class="text-3xl font-bold text-center text-stone-800 mb-12">Por Que Este Livro?</h3>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white rounded-2xl p-8 shadow hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h4 class="text-xl font-bold text-teal-700 mb-2">Impacto Emocional</h4>
+                        <p class="text-stone-600">O livro dá permissão para que as crianças sintam raiva e mostra que é possível lidar com grandes emoções de forma segura e imaginativa. A jornada de Max é uma metáfora para o autocontrole e o retorno à segurança do amor familiar.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h4 class="text-xl font-bold text-teal-700 mb-2">Arte e Inovação</h4>
+                        <p class="text-stone-600">As ilustrações de Sendak são icônicas e revolucionárias. Elas crescem em tamanho à medida que a imaginação de Max se expande, ocupando páginas inteiras no clímax da história, e depois diminuem quando ele retorna à realidade, uma técnica visual poderosa.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-4xl mb-4">🏆</div>
+                        <h4 class="text-xl font-bold text-teal-700 mb-2">Legado e Reconhecimento</h4>
+                        <p class="text-stone-600">Vencedor da Medalha Caldecott, o prêmio mais prestigiado para livros ilustrados nos EUA, e aclamado mundialmente por educadores, psicólogos e críticos. Sua relevância permanece intacta há mais de 60 anos, um verdadeiro teste de um clássico.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="comparison" class="mb-20">
+                 <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-stone-800">Análise Comparativa</h3>
+                    <p class="text-lg text-stone-600 mt-2 max-w-3xl mx-auto">"O melhor" é uma escolha forte, mas como ele se compara a outros gigantes da literatura infantil? Explore o gráfico interativo para ver a análise.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <div class="flex flex-wrap justify-center gap-2 mb-6">
+                         <button onclick="updateChart('todos')" class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-full transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">Mostrar Todos</button>
+                        <button onclick="updateChart('Onde Vivem os Monstros')" class="bg-amber-500 text-white font-semibold py-2 px-4 rounded-full transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400">Onde Vivem os Monstros</button>
+                        <button onclick="updateChart('Uma Lagarta Muito Comilona')" class="bg-lime-500 text-white font-semibold py-2 px-4 rounded-full transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-400">Uma Lagarta Muito Comilona</button>
+                        <button onclick="updateChart('O Grúfalo')" class="bg-orange-500 text-white font-semibold py-2 px-4 rounded-full transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400">O Grúfalo</button>
+                        <button onclick="updateChart('Boa Noite, Lua')" class="bg-sky-500 text-white font-semibold py-2 px-4 rounded-full transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-400">Boa Noite, Lua</button>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+
+                    <div id="book-details" class="mt-8 p-6 bg-amber-50 rounded-lg min-h-[100px] transition-all duration-300">
+                        <p class="text-stone-700 text-center">Clique em um livro acima para ver sua análise detalhada e destacar seus pontos no gráfico.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="verdict" class="text-center max-w-3xl mx-auto">
+                <h3 class="text-3xl font-bold text-stone-800 mb-4">O Veredito Final</h3>
+                <p class="text-lg text-stone-600 leading-relaxed">
+                    Embora existam muitos livros fantásticos, "Onde Vivem os Monstros" oferece uma combinação rara de profundidade psicológica, arte inovadora e uma mensagem de empoderamento emocional que é perfeitamente adequada para a mente curiosa e em desenvolvimento de uma criança de 5 anos. Ele não foge das emoções difíceis, mas as abraça, ensinando uma lição que dura a vida inteira.
+                </p>
+                <p class="text-lg text-stone-600 leading-relaxed mt-4">
+                    Embora o foco seja em 5 anos, o apelo desses livros é duradouro, encantando crianças dos 3 aos 8 anos e, honestamente, até os adultos que leem para elas.
+                </p>
+            </section>
+
+            <!-- *** SEÇÃO DE BOTÕES (Apenas Compartilhar) *** -->
+            <section id="reactions" class="mt-16 py-8">
+                <div class="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8">
+                    <h4 class="text-xl font-bold text-center text-stone-800 mb-6">Gostou desta análise?</h4>
+                    <div class="flex justify-center items-center">
+                        
+                        <!-- Botão de Curtir REMOVIDO -->
+
+                        <!-- Botão de Compartilhar -->
+                        <button id="share-button" onclick="handleShare()" class="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                            <span class="text-2xl">🔗</span>
+                            <span class="text-lg">Compartilhar</span>
+                        </button>
+                    </div>
+                    <div id="share-feedback" class="text-center text-sm text-stone-600 mt-4 h-5"></div>
+                </div>
+            </section>
+            <!-- *** FIM DA SEÇÃO DE BOTÕES *** -->
+
+        </div> 
+
+        <!-- SEU CÓDIGO ORIGINAL (Página de Fontes) -->
+        <div id="sources-page" style="display: none;">
+            <header class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold text-stone-800 leading-tight">Fontes e Metodologia</h1>
+                <p class="text-lg md:text-2xl text-stone-600 mt-2">Como esta análise foi construída.</p>
+            </header>
+
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <section class="mb-10">
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Metodologia de Análise</h2>
+                    <p class="text-stone-600 mb-4">Para determinar o "melhor" livro, esta análise não se baseou em uma única métrica, mas em uma síntese de consenso crítico e adequação pedagógica. O processo seguiu estes passos:</p>
+                    <ol class="list-decimal list-inside space-y-3 text-stone-700">
+                        <li><strong>Definição de Critérios:</strong> Foram estabelecidos quatro pilares de avaliação:
+                            <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                <li><strong>Profundidade Emocional:</strong> A capacidade do livro de abordar e validar emoções complexas da infância (medo, raiva, conforto).</li>
+                                <li><strong>Apelo Visual e Inovação:</strong> A qualidade da arte e como ela se integra à narrativa para criar uma experiência imersiva.</li>
+                                <li><strong>Popularidade e Ritmo (Engajamento):</strong> O quão bem o livro captura e mantém a atenção de uma criança, muitas vezes através de ritmo, rima ou repetição.</li>
+                                <li><strong>Reconhecimento Crítico e Legado:</strong> O consenso de longo prazo de educadores, psicólogos e críticos literários sobre a importância e o impacto do livro.</li>
+                            </ul>
+                        </li>
+                        <li class="mt-3"><strong>Síntese de Consenso:</strong> A análise foi realizada por uma IA treinada em um vasto corpus de dados, incluindo resenhas de livros, artigos acadêmicos sobre literatura infantil, discussões pedagógicas e listas de "melhores" de fontes globais (não limitadas ao Brasil).</li>
+                        <li><strong>Seleção e Justificativa:</strong> "Onde Vivem os Monstros" emergiu como um vencedor de consenso por se destacar excepcionalmente em "Profundidade Emocional" e "Reconhecimento Crítico", mais do que qualquer outro título.</li>
+                        <li><strong>Criação de Dados (Importante):</strong> Os dados de pontuação (de 0 a 10) no gráfico comparativo são **ilustrativos e qualitativos**. Eles não são resultado de uma pesquisa quantitativa, mas sim uma representação visual da síntese de consenso crítico da IA para cada livro em cada categoria.</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-teal-700 mb-4">Tipos de Fontes Utilizadas</h2>
+                    <p class="text-stone-600 mb-4">Esta análise é informada pelo conhecimento agregado de fontes como:</p>
+                     <ul class="list-disc list-inside space-y-2 text-stone-700">
+                        <li>Bancos de dados de prêmios literários (ex: A Medalha Caldecott, Kate Greenaway Medal).</li>
+                        <li>Publicações de psicologia infantil e pedagogia que discutem o desenvolvimento emocional através da leitura.</li>
+                        <li>Análises críticas de publicações literárias globais (ex: The New York Times Book Review, The Guardian, etc.).</li>
+                        <li>Recomendações de associações de bibliotecas e organizações de alfabetização (ex: American Library Association).</li>
+                        <li>Consenso geral de popularidade e longevidade em discussões públicas e acadêmicas.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- SEU CÓDIGO ORIGINAL (Rodapé) - COM SUA SEÇÃO ADICIONADA -->
+    <footer class="text-center py-10 mt-12 bg-white divide-y divide-stone-200 border-t border-stone-200">
+        <div class="max-w-4xl mx-auto px-4 pb-8">
+            <h4 class="text-lg font-semibold text-stone-700 mb-3">Hugo J. Amaral - Pai Atípico</h4>
+            <p class="text-md text-stone-600 italic mb-3">"O amor de um pai é o alicerce sobre o qual a imaginação de um filho constrói o mundo."</p>
+            <a href="mailto:hdjamaral@gmail.com" class="text-teal-700 hover:text-teal-900 font-semibold">Contato: hdjamaral@gmail.com</a>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 pt-8">
+            <h4 class="text-lg font-semibold text-stone-700 mb-3">Aviso Legal</h4>
+            <p class="text-sm text-stone-500 mb-4 leading-relaxed">
+                Este relatório interativo foi gerado por um assistente de Inteligência Artificial (IA) e é fornecido unicamente para fins informativos e ilustrativos. As análises, opiniões e dados de pontuação apresentados são uma síntese de informações de domínio público e não constituem aconselhamento profissional (seja pedagógico, psicológico ou jurídico). Os dados no gráfico são representações qualitativas para ilustração, não de uma pesquisa quantitativa. O criador e publicador desta página não se responsabiliza por quaisquer imprecisões, omissões ou decisões tomadas com base neste conteúdo. O uso de títulos e autores é feito para fins de crítica e análise, sem intenção de infringir direitos autorais.
+            </p>
+            <p class="text-sm text-stone-500">Relatório Interativo Gerado em 2025.</p>
+        </div>
+    </footer>
+
+    <!-- *** SCRIPT MODIFICADO (Sem Firebase, Sem função handleLike) *** -->
+    <script>
+        // --- SEU CÓDIGO ORIGINAL (Dados e Config do Gráfico) ---
+        const bookData = [
+            {
+                title: 'Onde Vivem os Monstros',
+                author: 'Maurice Sendak',
+                scores: [10, 9, 8, 10],
+                color: 'rgba(234, 179, 8, 1)',
+                highlightColor: 'rgba(234, 179, 8, 0.3)',
+                description: '<strong>Análise:</strong> Insuperável em profundidade emocional e validação de sentimentos infantis. Sua arte e narrativa são estudadas até hoje. Um pilar da literatura infantil moderna que ensina sobre como lidar com a raiva.'
+            },
+            {
+                title: 'Uma Lagarta Muito Comilona',
+                author: 'Eric Carle',
+                scores: [8, 10, 9, 9],
+                color: 'rgba(132, 204, 22, 1)',
+                highlightColor: 'rgba(132, 204, 22, 0.3)',
+                description: '<strong>Análise:</strong> Uma obra-prima do aprendizado interativo. Ensina dias da semana, números e o ciclo da vida de forma lúdica e visualmente deslumbrante. Extremamente popular e eficaz como ferramenta educacional.'
+            },
+            {
+                title: 'O Grúfalo',
+                author: 'Julia Donaldson & Axel Scheffler',
+                scores: [9, 8, 10, 9],
+                color: 'rgba(249, 115, 22, 1)',
+                highlightColor: 'rgba(249, 115, 22, 0.3)',
+                description: '<strong>Análise:</strong> Um clássico moderno que celebra a inteligência e a astúcia. Com rimas cativantes e uma história envolvente, é um favorito absoluto das crianças para leitura em voz alta. O suspense e a reviravolta são geniais.'
+            },
+            {
+                title: 'Boa Noite, Lua',
+                author: 'Margaret Wise Brown & Clement Hurd',
+                scores: [7, 7, 10, 8],
+                color: 'rgba(14, 165, 233, 1)',
+                highlightColor: 'rgba(14, 165, 233, 0.3)',
+                description: '<strong>Análise:</strong> O livro de rotina para dormir por excelência. Sua natureza calma, repetitiva e poética é projetada para acalmar e preparar a criança para o sono. Um clássico atemporal que foca no conforto e na segurança.'
+            }
+        ];
+
+        const labels = ['Profundidade Emocional', 'Apelo Visual e Interativo', 'Popularidade e Ritmo', 'Reconhecimento Crítico'];
+        let comparisonChart;
+
+        const chartConfig = {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: bookData.map(book => ({
+                    label: book.title,
+                    data: book.scores,
+                    backgroundColor: book.color,
+                    borderColor: book.color.replace('1)', '1)'),
+                    borderWidth: 1
+                }))
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: {
+                            color: '#e5e7eb'
+                        },
+                        ticks: {
+                           color: '#4A4A4A'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                         ticks: {
+                           color: '#4A4A4A'
+                        }
+                    }
+                }
+            }
+        };
+
+        // --- SEU CÓDIGO ORIGINAL (Funções de Navegação e Menu) ---
+        const homePage = document.getElementById('home-page');
+        const sourcesPage = document.getElementById('sources-page');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function showPage(pageId, closeMenu = false) {
+            homePage.style.display = 'none';
+            sourcesPage.style.display = 'none';
+            
+            if (pageId === 'home-page') {
+                homePage.style.display = 'block';
+            } else if (pageId === 'sources-page') {
+                sourcesPage.style.display = 'block';
+            }
+            
+            if (closeMenu) {
+                mobileMenu.classList.add('-translate-x-full');
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('-translate-x-full');
+        });
+
+        // --- SEU CÓDIGO ORIGINAL (Inicialização do Gráfico) ---
+        window.onload = function() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            comparisonChart = new Chart(ctx, chartConfig);
+            
+            showPage('home-page');
+        };
+
+        // --- SEU CÓDIGO ORIGINAL (Atualização do Gráfico) ---
+        function updateChart(selectedBookTitle) {
+            const detailsPanel = document.getElementById('book-details');
+            
+            if (selectedBookTitle === 'todos') {
+                comparisonChart.data.datasets.forEach((dataset, index) => {
+                    dataset.backgroundColor = bookData[index].color;
+                });
+                detailsPanel.innerHTML = '<p class="text-stone-700 text-center">Clique em um livro acima para ver sua análise detalhada e destacar seus pontos no gráfico.</p>';
+            } else {
+                const selectedBook = bookData.find(b => b.title === selectedBookTitle);
+                
+                if (selectedBook) {
+                    comparisonChart.data.datasets.forEach((dataset, index) => {
+                        const currentBook = bookData[index];
+                        dataset.backgroundColor = currentBook.title === selectedBookTitle ? currentBook.color : currentBook.highlightColor;
+                    });
+                    detailsPanel.innerHTML = `<p class="text-stone-800">${selectedBook.description}</p>`;
+                }
+            }
+            comparisonChart.update();
+        }
+
+        // --- Função handleLike() REMOVIDA ---
+
+        // --- Função de Compartilhar (Mantida) ---
+        function handleShare() {
+            const shareFeedback = document.getElementById('share-feedback');
+            const url = window.location.href;
+            const shareData = {
+                title: 'Análise: O Melhor Livro Infantil',
+                text: 'Uma análise interativa sobre o melhor livro para crianças de 5 anos.',
+                url: url,
+            };
+
+            if (navigator.share) {
+                // API de Compartilhamento Nativa
+                navigator.share(shareData)
+                    .catch((error) => console.warn("Erro ao compartilhar:", error));
+            } else {
+                // Fallback: Copiar para Área de Transferência
+                navigator.clipboard.writeText(url).then(() => {
+                    if (shareFeedback) {
+                        shareFeedback.textContent = "Link copiado para a área de transferência!";
+                        setTimeout(() => { shareFeedback.textContent = ""; }, 2000);
+                    }
+                }).catch(err => {
+                    console.error('Falha ao copiar link:', err);
+                    if (shareFeedback) {
+                        shareFeedback.textContent = "Falha ao copiar o link.";
+                        setTimeout(() => { shareFeedback.textContent = ""; }, 2000);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
