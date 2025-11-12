@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-	<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WC8NF3V3');</script>
-<!-- End Google Tag Manager -->
-	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SYTV65DN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-1SYTV65DN0');
+    </script>
+    <!-- Fim do Google tag (gtag.js) -->
+	
     <title>O Melhor Livro Infantil: Análise e Metodologia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Harmony -->
-    <!-- Application Structure Plan: SPA com duas 'páginas' (home e sources). -->
-    <!-- Visualization & Content Choices: Gráfico de Barras Horizontais (Chart.js), etc. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -46,19 +46,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         #mobile-menu {
             transition: transform 0.3s ease-in-out;
         }
-
-        /* CSS de Animação e Curtir REMOVIDO */
-
     </style>
 </head>
 <body class="antialiased">
 
-	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC8NF3V3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-    <!-- SEU CÓDIGO ORIGINAL (Menu de Navegação) -->
     <nav class="fixed top-0 left-0 right-0 bg-teal-50 shadow-md z-50 h-18">
         <div class="container mx-auto px-4 h-full">
             <div class="flex justify-between items-center h-full">
@@ -85,7 +76,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </nav>
 
-    <!-- SEU CÓDIGO ORIGINAL (Conteúdo Principal) -->
     <main class="container mx-auto px-4 py-8 md:py-16">
 
         <div id="home-page">
@@ -161,15 +151,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </p>
             </section>
 
-            <!-- *** SEÇÃO DE BOTÕES (Apenas Compartilhar) *** -->
             <section id="reactions" class="mt-16 py-8">
                 <div class="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8">
                     <h4 class="text-xl font-bold text-center text-stone-800 mb-6">Gostou desta análise?</h4>
                     <div class="flex justify-center items-center">
-                        
-                        <!-- Botão de Curtir REMOVIDO -->
-
-                        <!-- Botão de Compartilhar -->
                         <button id="share-button" onclick="handleShare()" class="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
                             <span class="text-2xl">🔗</span>
                             <span class="text-lg">Compartilhar</span>
@@ -178,11 +163,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div id="share-feedback" class="text-center text-sm text-stone-600 mt-4 h-5"></div>
                 </div>
             </section>
-            <!-- *** FIM DA SEÇÃO DE BOTÕES *** -->
 
         </div> 
 
-        <!-- SEU CÓDIGO ORIGINAL (Página de Fontes) -->
         <div id="sources-page" style="display: none;">
             <header class="text-center mb-16">
                 <h1 class="text-4xl md:text-6xl font-bold text-stone-800 leading-tight">Fontes e Metodologia</h1>
@@ -224,7 +207,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </main>
 
-    <!-- SEU CÓDIGO ORIGINAL (Rodapé) - COM SUA SEÇÃO ADICIONADA -->
     <footer class="text-center py-10 mt-12 bg-white divide-y divide-stone-200 border-t border-stone-200">
         <div class="max-w-4xl mx-auto px-4 pb-8">
             <h4 class="text-lg font-semibold text-stone-700 mb-3">Hugo J. Amaral - Pai Atípico</h4>
@@ -241,9 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </footer>
 
-    <!-- *** SCRIPT MODIFICADO (Sem Firebase, Sem função handleLike) *** -->
     <script>
-        // --- SEU CÓDIGO ORIGINAL (Dados e Config do Gráfico) ---
         const bookData = [
             {
                 title: 'Onde Vivem os Monstros',
@@ -333,7 +313,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         };
 
-        // --- SEU CÓDIGO ORIGINAL (Funções de Navegação e Menu) ---
         const homePage = document.getElementById('home-page');
         const sourcesPage = document.getElementById('sources-page');
         const menuToggle = document.getElementById('menu-toggle');
@@ -360,7 +339,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             mobileMenu.classList.toggle('-translate-x-full');
         });
 
-        // --- SEU CÓDIGO ORIGINAL (Inicialização do Gráfico) ---
         window.onload = function() {
             const ctx = document.getElementById('comparisonChart').getContext('2d');
             comparisonChart = new Chart(ctx, chartConfig);
@@ -368,7 +346,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             showPage('home-page');
         };
 
-        // --- SEU CÓDIGO ORIGINAL (Atualização do Gráfico) ---
         function updateChart(selectedBookTitle) {
             const detailsPanel = document.getElementById('book-details');
             
@@ -391,9 +368,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             comparisonChart.update();
         }
 
-        // --- Função handleLike() REMOVIDA ---
-
-        // --- Função de Compartilhar (Mantida) ---
         function handleShare() {
             const shareFeedback = document.getElementById('share-feedback');
             const url = window.location.href;
@@ -404,11 +378,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             };
 
             if (navigator.share) {
-                // API de Compartilhamento Nativa
                 navigator.share(shareData)
                     .catch((error) => console.warn("Erro ao compartilhar:", error));
             } else {
-                // Fallback: Copiar para Área de Transferência
                 navigator.clipboard.writeText(url).then(() => {
                     if (shareFeedback) {
                         shareFeedback.textContent = "Link copiado para a área de transferência!";
